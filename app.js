@@ -1,7 +1,7 @@
 const { response } = require("express");
 const express = require("express");
 const app = express();
-const API_KEY = "1234567890"; 
+const API_KEY = "19200481"; 
 var bmp, apiKey, temp, spo2, ecg
 
 var bodyParser = require('body-parser')
@@ -24,13 +24,13 @@ app.post("/data", (req, res) => {
 })
 
 app.get("/data", (req, res) => {
-  //res.send(`<h1>Health Monitor</h1>`)
   if (apiKey != API_KEY) {
     res.send(`<h1>Unauthorized!</h1>`)
   } else {
     res.send(`<h1>BMP: ${bmp}, \nTemparature: ${temp} *C, SPO2: ${spo2} %, ECG: ${ecg} mV</h1>`);
   }
  })
+
 
 
 app.listen(3000, function (request, response) {
